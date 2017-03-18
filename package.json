@@ -1,0 +1,23 @@
+{
+  "name": "depression-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolenskyatwork/depression-api.git"
+  },
+  "author": "wolenskyatwork",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wolenskyatwork/depression-api/issues"
+  },
+  "homepage": "https://github.com/wolenskyatwork/depression-api#readme",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.15.2"
+  }
+}
