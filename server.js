@@ -7,11 +7,7 @@ app.use(cors());
 //routes
 var router = express.Router();
 
-// router.use(function(req, res, next) {
-//   next();
-// });
-
-const tempQuestions = {
+const questions = {
   questions:
   [
     "Little interest or pleasure in doing things?",
@@ -29,19 +25,19 @@ const tempQuestions = {
 const answers = {
   answers: [
     {
-      text: "Not at all",
+      label: "Not at all",
       value: 0,
     },
     {
-      text: "Several days",
+      label: "Several days",
       value: 1,
     },
     {
-      text: "More than half the days",
+      label: "More than half the days",
       value: 2,
     },
     {
-      text: "Nearly every day",
+      label: "Nearly every day",
       value: 3,
     },
   ],
@@ -66,10 +62,11 @@ const severity = {
       threshold: 19,
     },
     {
-      text: "none",
+      text: "severe",
       threshold: 27,
     },
   ],
+  therapistThreshold: 15, //indicates which score means user should see a therapist
 };
 
 const therapists = {
@@ -91,12 +88,22 @@ const therapists = {
 
 router.route('/questions')
   .get(function(req, res) {
-    res.json(JSON.parse(JSON.stringify(tempQuestions)));
+    res.json(JSON.parse(JSON.stringify(questions)));
   });
 
 router.route('/answers')
   .get(function(req, res) {
-    res.json(JSON.parse());
+    res.json(JSON.parse(JSON.stringify(answers)));
+});
+
+router.route('/therapists')
+  .get(function(req, res) {
+    res.json(JSON.parse(JSON.stringify(therapists)));
+});
+
+router.route('/severity')
+  .get(function(req, res) {
+    res.json(JSON.parse(JSON.stringify(severity)));
 });
 
 app.use('/api', router);
